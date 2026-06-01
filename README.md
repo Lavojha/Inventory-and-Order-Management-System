@@ -1,118 +1,243 @@
 # Inventory & Order Management System
 
-Production-ready technical assessment project with:
+A full-stack Inventory & Order Management System built with React, FastAPI, PostgreSQL, and Docker.
 
-- React frontend
-- Python FastAPI backend
-- PostgreSQL database
-- Dockerfiles for frontend and backend
-- Docker Compose orchestration
-- Business rules for unique SKU/email, non-negative stock, inventory reduction, automatic totals, and error handling
+This project was developed as a technical assessment to demonstrate full-stack development skills, REST API design, database management, Docker containerization, and implementation of real-world business rules.
 
-## Run Locally With Docker
+## Live Demo
 
-1. Create  `.env`.
-2. Change `POSTGRES_PASSWORD` in `.env`.
-3. Run:
+### Frontend
+
+https://inventory-and-order-management-system-2w0io78s6.vercel.app
+
+### Backend API
+
+https://inventory-backend-9j10.onrender.com
+
+### API Documentation (Swagger)
+
+https://inventory-backend-9j10.onrender.com/docs
+
+### Health Check
+
+https://inventory-backend-9j10.onrender.com/health
+
+---
+
+## Tech Stack
+
+### Frontend
+
+* React (Vite)
+* JavaScript
+* CSS
+
+### Backend
+
+* FastAPI
+* SQLAlchemy
+* Pydantic
+
+### Database
+
+* PostgreSQL
+
+### DevOps
+
+* Docker
+* Docker Compose
+
+---
+
+## Features
+
+### Product Management
+
+* Create, update, delete, and view products
+* Unique SKU validation
+* Prevent negative stock values
+* Quick stock restock controls
+* Product search and sorting
+
+### Customer Management
+
+* Create and manage customers
+* Unique email validation
+* View customer order history
+
+### Order Management
+
+* Create multi-item orders
+* Automatic order total calculation
+* Inventory reduction after order placement
+* Order details modal with line items
+* Order search and filtering
+
+### Dashboard
+
+* Product, customer, and order summaries
+* Low-stock watchlist
+* Clickable dashboard cards for quick navigation
+
+### UI Improvements
+
+* Responsive design
+* Mobile-friendly tables
+* Search functionality across products and customers
+* Indian Rupee (₹) currency formatting
+* Order dates displayed throughout the application
+
+---
+
+## Environment Variables
+
+Create a `.env` file in the project root.
+
+```env
+POSTGRES_DB=inventory_db
+POSTGRES_USER=your_postgres_user
+POSTGRES_PASSWORD=your_postgres_password
+
+CORS_ORIGINS=http://localhost:5173,http://localhost:8080
+
+VITE_API_URL=http://localhost:8000
+```
+
+### Important
+
+When running with Docker Compose locally, do **not** add `DATABASE_URL` to the `.env` file.
+
+The backend automatically builds the PostgreSQL connection string using:
+
+* POSTGRES_DB
+* POSTGRES_USER
+* POSTGRES_PASSWORD
+
+This works correctly even when the password contains special characters.
+
+---
+
+## Running Locally with Docker
 
 ```bash
 docker compose up --build
 ```
 
-For local Docker usage, do not add `DATABASE_URL` to `.env`. The backend builds the correct database URL from `POSTGRES_DB`, `POSTGRES_USER`, and `POSTGRES_PASSWORD` automatically, including passwords that contain symbols.
+### Local URLs
 
-Manual reset:
+Frontend:
 
-```powershell
-docker compose down -v
-docker volume rm stockflow_postgres_data_v2
-docker compose up --build
+```text
+http://localhost:8080
 ```
 
-This deletes only the local development database volume and recreates it with the password from `.env`.
+Backend:
 
-Open:
+```text
+http://localhost:8000
+```
 
-- Frontend: [ http://localhost:8080](https://inventory-and-order-management-system-2w0io78s6.vercel.app)
-- Backend API docs:[ http://localhost:8000/docs](https://inventory-backend-9j10.onrender.com/docs)
-- Backend health check:[ http://localhost:8000/](https://inventory-backend-9j10.onrender.com/health)
+Swagger Docs:
+
+```text
+http://localhost:8000/docs
+```
+
+Health Check:
+
+```text
+http://localhost:8000/health
+```
+
+---
 
 ## API Endpoints
 
-Products:
+### Products
 
-- `POST /products`
-- `GET /products`
-- `GET /products/{id}`
-- `PUT /products/{id}`
-- `PATCH /products/{id}/stock`
-- `DELETE /products/{id}`
-
-## Extra Features Added
-
-- Search products and customers instantly from the UI.
-- Sort products by stock, price, and name.
-- Dashboard low-stock watchlist.
-- Clickable dashboard summary cards that jump to products, customers, orders, or low-stock items.
-- Separate in-app pages for dashboard, products, customers, and orders.
-- Indian rupee currency formatting across product, dashboard, and order views.
-- Order dates shown in the order list and order details modal.
-- Search and filter controls in the Orders page.
-- Click any customer row to see that customer's orders.
-- Quick restock controls without opening the product editor.
-- Multi-item order form with live total estimate.
-- Order detail modal for reviewing customer, line items, and totals.
-- Responsive sidebar/navigation and improved mobile table handling.
-
-## Frontend Structure
-
-The React frontend uses a component-based architecture:
-
-- `src/main.jsx`: React entry point only.
-- `src/App.jsx`: app state, API actions, and page composition.
-- `src/api/client.js`: reusable backend request helper.
-- `src/components/`: feature sections plus shared UI helpers in `common.jsx`.
-- `src/styles.css`: CSS import hub.
-- `src/styles/`: split CSS files for base, layout, components, and responsive rules.
-
-Customers:
-
-- `POST /customers`
-- `GET /customers`
-- `GET /customers/{id}`
-- `DELETE /customers/{id}`
-
-Orders:
-
-- `POST /orders`
-- `GET /orders`
-- `GET /orders/{id}`
-- `DELETE /orders/{id}`
-
-Dashboard:
-
-- `GET /dashboard`
-
-## Deployment Notes
-
-You need personal accounts for the final public URLs requested by the assessment.
-
-Recommended free path:
-
-1. Push this folder to GitHub.
-2. Create a PostgreSQL database on Render.
-3. Deploy `backend/` to Render.
-4. Set backend environment variables:
-   - `DATABASE_URL`
-   - `CORS_ORIGINS` with your frontend URL
-5. Build and push backend Docker image to Docker Hub:
-
-```bash
-docker build -t YOUR_DOCKERHUB_USERNAME/inventory-api:latest ./backend
-docker push YOUR_DOCKERHUB_USERNAME/inventory-api:latest
+```http
+POST   /products
+GET    /products
+GET    /products/{id}
+PUT    /products/{id}
+PATCH  /products/{id}/stock
+DELETE /products/{id}
 ```
 
-6. Deploy `frontend/` to Vercel.
-7. Set frontend environment variable:
+### Customers
+
+```http
+POST   /customers
+GET    /customers
+GET    /customers/{id}
+DELETE /customers/{id}
+```
+
+### Orders
+
+```http
+POST   /orders
+GET    /orders
+GET    /orders/{id}
+DELETE /orders/{id}
+```
+
+### Dashboard
+
+```http
+GET /dashboard
+```
+
+---
+
+## Deployment
+
+### Backend (Render)
+
+Environment Variables:
+
+```env
+DATABASE_URL=<your_render_postgres_url>
+CORS_ORIGINS=https://inventory-and-order-management-system-2w0io78s6.vercel.app
+```
+
+### Frontend (Vercel)
+
+Environment Variable:
+
+```env
+VITE_API_URL=https://inventory-backend-9j10.onrender.com
+```
+
+---
+
+## What I Focused On
+
+* Clean API design
+* Reusable React components
+* Business rule enforcement
+* Error handling and validation
+* Responsive UI/UX
+* Docker-based local development
+* Maintainable project structure
+
+---
+
+## Future Improvements
+
+* Authentication and authorization
+* Role-based access control
+* Product categories
+* Inventory transaction history
+* Pagination
+* Automated tests
+* Export orders to CSV/PDF
+
+---
+
+## Author
+
+Developed by **Lavlesh Ojha** as a full-stack technical assessment project using React, FastAPI, PostgreSQL, and Docker.
+
    - `VITE_API_URL` with your live backend URL
 
