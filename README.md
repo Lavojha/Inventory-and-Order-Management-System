@@ -11,7 +11,7 @@ Production-ready technical assessment project with:
 
 ## Run Locally With Docker
 
-1. Copy `.env.example` to `.env`.
+1. Create  `.env`.
 2. Change `POSTGRES_PASSWORD` in `.env`.
 3. Run:
 
@@ -20,22 +20,6 @@ docker compose up --build
 ```
 
 For local Docker usage, do not add `DATABASE_URL` to `.env`. The backend builds the correct database URL from `POSTGRES_DB`, `POSTGRES_USER`, and `POSTGRES_PASSWORD` automatically, including passwords that contain symbols.
-
-## Fix Password Authentication Errors
-
-If you see this error:
-
-```text
-FATAL: password authentication failed for user "inventory_user"
-```
-
-It means Docker is probably reusing an old PostgreSQL data volume that was created with a different password.
-
-Fast reset:
-
-```powershell
-.\reset-local-database.ps1
-```
 
 Manual reset:
 
@@ -49,9 +33,9 @@ This deletes only the local development database volume and recreates it with th
 
 Open:
 
-- Frontend: http://localhost:8080
-- Backend API docs: http://localhost:8000/docs
-- Backend health check: http://localhost:8000/health
+- Frontend: [ http://localhost:8080](https://inventory-and-order-management-system-2w0io78s6.vercel.app)
+- Backend API docs:[ http://localhost:8000/docs](https://inventory-backend-9j10.onrender.com/docs)
+- Backend health check:[ http://localhost:8000/](https://inventory-backend-9j10.onrender.com/health)
 
 ## API Endpoints
 
@@ -116,8 +100,8 @@ You need personal accounts for the final public URLs requested by the assessment
 Recommended free path:
 
 1. Push this folder to GitHub.
-2. Create a PostgreSQL database on Render or Railway.
-3. Deploy `backend/` to Render, Railway, or Fly.io.
+2. Create a PostgreSQL database on Render.
+3. Deploy `backend/` to Render.
 4. Set backend environment variables:
    - `DATABASE_URL`
    - `CORS_ORIGINS` with your frontend URL
@@ -128,13 +112,7 @@ docker build -t YOUR_DOCKERHUB_USERNAME/inventory-api:latest ./backend
 docker push YOUR_DOCKERHUB_USERNAME/inventory-api:latest
 ```
 
-6. Deploy `frontend/` to Vercel or Netlify.
+6. Deploy `frontend/` to Vercel.
 7. Set frontend environment variable:
    - `VITE_API_URL` with your live backend URL
 
-## Submission Checklist
-
-- GitHub repository link
-- Docker Hub backend image link
-- Live frontend deployment URL
-- Live backend API URL
