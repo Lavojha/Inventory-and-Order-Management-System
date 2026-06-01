@@ -239,5 +239,4 @@ VITE_API_URL=https://inventory-backend-9j10.onrender.com
 
 Developed by **Lavlesh Ojha** as a full-stack technical assessment project using React, FastAPI, PostgreSQL, and Docker.
 
-   - `VITE_API_URL` with your live backend URL
 
