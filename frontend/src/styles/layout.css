@@ -1,0 +1,96 @@
+.app-shell {
+  display: grid;
+  grid-template-columns: 248px 1fr;
+  min-height: 100vh;
+}
+
+.sidebar {
+  background: #103743;
+  color: white;
+  padding: 28px 22px;
+}
+
+.brand {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 36px;
+}
+
+.brand strong {
+  display: block;
+  font-size: 1.1rem;
+}
+
+.brand span,
+.topbar p,
+.helper {
+  color: #60717b;
+  margin: 0;
+}
+
+.brand span {
+  color: #b9cdd4;
+  font-size: 0.85rem;
+}
+
+nav {
+  display: grid;
+  gap: 8px;
+}
+
+.nav-link {
+  background: transparent;
+  color: #dcebee;
+  justify-content: flex-start;
+  padding: 10px 12px;
+  border-radius: 6px;
+  min-height: 40px;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+main {
+  padding: 28px;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+  background: #103743;
+  color: white;
+  border-radius: 8px;
+  padding: 18px;
+}
+
+.topbar p {
+  color: #b9cdd4;
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.insights {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-bottom: 22px;
+}
+
+.panel-grid {
+  display: grid;
+  grid-template-columns: minmax(260px, 360px) minmax(0, 1fr);
+  gap: 18px;
+  margin-bottom: 22px;
+  align-items: start;
+}

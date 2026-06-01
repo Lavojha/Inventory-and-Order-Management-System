@@ -1,0 +1,433 @@
+.icon-button {
+  width: 42px;
+  padding: 0;
+  border: 0;
+  background: #0b7285;
+  color: white;
+  min-height: 42px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-button:disabled {
+  cursor: wait;
+  opacity: 0.72;
+}
+
+.topbar-refresh {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.topbar-refresh:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.notice {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 6px;
+  margin-bottom: 18px;
+}
+
+.notice.success {
+  background: #e7f7ed;
+  color: #11602d;
+}
+
+.notice.error {
+  background: #fff0ea;
+  color: #9a3412;
+}
+
+.notice button {
+  margin-left: auto;
+  background: transparent;
+  color: inherit;
+  min-height: auto;
+  padding: 4px 8px;
+}
+
+.metric,
+.panel,
+.order-card {
+  background: white;
+  border: 1px solid #dfe7ea;
+  border-radius: 8px;
+}
+
+.metric {
+  padding: 18px;
+  display: grid;
+  gap: 8px;
+}
+
+.metric-link {
+  color: inherit;
+  text-align: left;
+  min-height: auto;
+  cursor: pointer;
+  transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+
+.metric-link:hover,
+.metric-link:focus-visible {
+  border-color: #0b7285;
+  box-shadow: 0 10px 24px rgba(16, 55, 67, 0.12);
+  transform: translateY(-2px);
+  outline: 0;
+}
+
+.metric svg,
+.section-title svg {
+  color: #0b7285;
+}
+
+.metric span {
+  color: #60717b;
+  font-size: 0.9rem;
+}
+
+.metric strong {
+  font-size: 1.8rem;
+}
+
+.panel {
+  padding: 18px;
+}
+
+.insight-panel {
+  min-height: 158px;
+}
+
+.form-panel {
+  display: grid;
+  gap: 12px;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.button-row,
+.actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.toolbar {
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) 180px;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.order-toolbar {
+  grid-template-columns: minmax(240px, 1fr) 180px 140px;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid #cbd8dd;
+  border-radius: 6px;
+  min-height: 42px;
+  padding: 0 10px;
+  background: #f8fbfc;
+}
+
+.search-box.full {
+  margin-bottom: 12px;
+}
+
+.search-box svg {
+  color: #60717b;
+  flex: 0 0 auto;
+}
+
+.search-box input {
+  border: 0;
+  min-height: 38px;
+  padding: 0;
+  background: transparent;
+}
+
+.search-box input:focus {
+  outline: 0;
+}
+
+.snapshot-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.snapshot-grid div {
+  border: 1px solid #edf2f4;
+  border-radius: 8px;
+  padding: 14px;
+  background: #f8fbfc;
+}
+
+.snapshot-grid span,
+.empty-state {
+  color: #60717b;
+  font-size: 0.9rem;
+}
+
+.snapshot-grid strong {
+  display: block;
+  margin-top: 6px;
+  font-size: 1.35rem;
+}
+
+.watchlist {
+  display: grid;
+  gap: 8px;
+}
+
+.watch-item {
+  min-height: 42px;
+  width: 100%;
+  background: #fff8ed;
+  color: #7c3f00;
+  border: 1px solid #fed7aa;
+  justify-content: space-between;
+}
+
+.watch-item:hover {
+  background: #ffedd5;
+  transform: translateY(-1px);
+}
+
+.order-lines {
+  display: grid;
+  gap: 10px;
+}
+
+.order-line {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 88px 34px;
+  gap: 8px;
+  align-items: center;
+}
+
+.order-line:first-child:last-child {
+  grid-template-columns: minmax(0, 1fr) 88px;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 640px;
+}
+
+th,
+td {
+  text-align: left;
+  border-bottom: 1px solid #edf2f4;
+  padding: 12px 10px;
+  vertical-align: middle;
+}
+
+th {
+  color: #60717b;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.clickable-row {
+  cursor: pointer;
+}
+
+.clickable-row:hover,
+.clickable-row.selected {
+  background: #f2f8fa;
+}
+
+.customer-orders-panel {
+  border-top: 1px solid #edf2f4;
+  margin-top: 16px;
+  padding-top: 16px;
+}
+
+.customer-orders-header,
+.mini-order-card,
+.mini-order-card > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.customer-orders-header {
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.mini-order-list {
+  display: grid;
+  gap: 10px;
+}
+
+.mini-order-card {
+  justify-content: space-between;
+  flex-wrap: wrap;
+  border: 1px solid #edf2f4;
+  border-radius: 8px;
+  padding: 12px;
+  background: #f8fbfc;
+}
+
+.mini-order-card span {
+  color: #60717b;
+  font-size: 0.9rem;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 38px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: #e8f4f6;
+  color: #0b7285;
+  font-weight: 700;
+}
+
+.pill.danger {
+  background: #fff0ea;
+  color: #c2410c;
+}
+
+.order-list {
+  display: grid;
+  gap: 12px;
+}
+
+.order-card {
+  padding: 14px;
+  display: grid;
+  gap: 10px;
+}
+
+.order-card span,
+.order-items {
+  color: #60717b;
+  font-size: 0.92rem;
+}
+
+.order-card-header,
+.order-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.order-card-header > div:first-child,
+.order-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.order-card-header > div:first-child {
+  display: grid;
+  gap: 2px;
+}
+
+.order-actions {
+  margin-left: auto;
+}
+
+.order-items {
+  display: grid;
+  gap: 4px;
+}
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  background: rgba(11, 32, 39, 0.48);
+  display: grid;
+  place-items: center;
+  padding: 18px;
+}
+
+.modal {
+  width: min(680px, 100%);
+  max-height: 90vh;
+  overflow: auto;
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 24px 70px rgba(16, 55, 67, 0.28);
+}
+
+.modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.modal-header p {
+  margin: 4px 0 0;
+  color: #60717b;
+}
+
+.detail-list {
+  display: grid;
+  gap: 8px;
+}
+
+.detail-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) 96px 120px 96px;
+  gap: 10px;
+  align-items: center;
+  border-bottom: 1px solid #edf2f4;
+  padding: 10px 0;
+}
+
+.detail-row span {
+  color: #60717b;
+}
+
+.modal-total {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 2px solid #e6ecef;
+  font-size: 1.1rem;
+}
+
+.spin {
+  animation: spin 0.9s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
